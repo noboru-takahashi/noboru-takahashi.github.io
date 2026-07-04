@@ -63,6 +63,20 @@ a:hover {
     text-decoration: underline;
 }
 
+.work-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.work-thumb {
+    width: 96px;
+    height: 72px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
 .footer {
     margin-top: 50px;
     color: #888;
@@ -105,20 +119,23 @@ Medium
 
 <ul>
 <li>
-<a href="assets/terayama_cover.pdf" target="_blank">
-1993 「寺山修司:反逆から様式へ」表紙
+<a class="work-link" href="assets/terayama_cover.pdf" target="_blank">
+<img class="work-thumb" src="assets/tera1_thumb.png" alt="">
+<span>1993 「寺山修司:反逆から様式へ」表紙</span>
 </a>
 </li>
 
 <li>
-<a href="assets/kotoba.pdf" target="_blank">
-1994 第61回毎日広告デザイン賞 優秀賞
+<a class="work-link" href="assets/kotoba.pdf" target="_blank">
+<img class="work-thumb" src="assets/kotoba_thumb.png" alt="">
+<span>1994 第61回毎日広告デザイン賞 優秀賞</span>
 </a>
 </li>
 
 <li>
-<a href="assets/aramata.pdf" target="_blank">
-1994 光るアラマタ肖像画
+<a class="work-link" href="assets/aramata.pdf" target="_blank">
+<img class="work-thumb" src="assets/aramata_thumb.png" alt="">
+<span>1994 光るアラマタ肖像画</span>
 </a>
 </li>
 </ul>
