@@ -1,0 +1,85 @@
+(() => {
+    "use strict";
+
+    const works = Object.freeze({
+        "terayama-spread": Object.freeze({
+            title: "1993 「寺山修司：反逆から様式へ」見開き",
+            dzi: "assets/dzi/terayama-spread/image.dzi",
+            pdf: "assets/terayama_a3.pdf"
+        })
+    });
+
+    const titleElement = document.getElementById("work-title");
+    const pdfLink = document.getElementById("pdf-link");
+    const viewerElement = document.getElementById("openseadragon");
+    const errorElement = document.getElementById("viewer-error");
+
+    const showError = (message) => {
+        viewerElement.hidden = true;
+        pdfLink.hidden = true;
+        errorElement.textContent = message;
+        errorElement.hidden = false;
+    };
+
+    const workId = new URLSearchParams(window.location.search).get("work");
+    const work = workId ? works[workId] : undefined;
+
+    if (!work) {
+        titleElement.textContent = "作品が見つかりません";
+        document.title = "作品が見つかりません | Noboru Takahashi";
+        showError("指定された作品は存在しません。作品一覧へ戻って選び直してください。");
+        return;
+    }
+
+    titleElement.textContent = work.title;
+    document.title = `${work.title} | Noboru Takahashi`;
+    pdfLink.href = work.pdf;
+
+    if (typeof window.OpenSeadragon !== "function") {
+        showError("画像ビューアを読み込めませんでした。ページを再読み込みしてください。");
+        return;
+    }
+
+    const viewer = window.OpenSeadragon({
+        id: "openseadragon",
+        prefixUrl: "vendor/openseadragon/images/",
+        tileSources: work.dzi,
+        showNavigator: false,
+        showNavigationControl: true,
+        showZoomControl: true,
+        showHomeControl: true,
+        showFullPageControl: true,
+        showRotationControl: false,
+        homeFillsViewer: false,
+        preserveViewport: false,
+        constrainDuringPan: true,
+        visibilityRatio: 1,
+        minZoomImageRatio: 1,
+        maxZoomPixelRatio: 2,
+        animationTime: 0.8,
+        blendTime: 0.1,
+        gestureSettingsMouse: {
+            clickToZoom: false,
+            dblClickToZoom: true,
+            dragToPan: true,
+            scrollToZoom: true
+        },
+        gestureSettingsTouch: {
+            clickToZoom: false,
+            dblClickToZoom: true,
+            dragToPan: true,
+            pinchToZoom: true,
+            flickEnabled: true
+        }
+    });
+
+    viewer.addHandler("open", () => {
+        viewer.viewport.goHome(true);
+        viewer.canvas.setAttribute("tabindex", "0");
+    });
+
+    viewer.addHandler("open-failed", () => {
+        viewer.destroy();
+        showError("作品画像を読み込めませんでした。しばらくしてから再度お試しください。");
+    });
+})();

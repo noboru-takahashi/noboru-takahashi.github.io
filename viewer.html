@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>作品ビューア | Noboru Takahashi</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/viewer.css">
+</head>
+
+<body>
+<header class="viewer-header">
+<div class="viewer-heading">
+<a class="back-link" href="index.html">作品一覧へ戻る</a>
+<h1 id="work-title">作品ビューア</h1>
+</div>
+<a id="pdf-link" class="pdf-link" href="assets/terayama_a3.pdf" target="_blank" rel="noopener">PDFを開く</a>
+</header>
+
+<main class="viewer-main">
+<div id="openseadragon" class="viewer-canvas" aria-label="作品画像のズームビューア"></div>
+<div id="viewer-error" class="viewer-message" role="alert" hidden></div>
+<noscript>
+<div class="viewer-message">この作品を表示するにはJavaScriptを有効にしてください。</div>
+</noscript>
+</main>
+
+<script src="vendor/openseadragon/openseadragon.min.js" defer></script>
+<script src="js/viewer.js" defer></script>
+</body>
+</html>
