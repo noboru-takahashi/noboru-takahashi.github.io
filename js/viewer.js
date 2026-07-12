@@ -27,9 +27,17 @@
     });
 
     const titleElement = document.getElementById("work-title");
+    const backLink = document.getElementById("back-link");
     const pdfLink = document.getElementById("pdf-link");
     const viewerElement = document.getElementById("openseadragon");
     const errorElement = document.getElementById("viewer-error");
+
+    backLink.addEventListener("click", (event) => {
+        if (document.referrer) {
+            event.preventDefault();
+            window.history.back();
+        }
+    });
 
     const showError = (message) => {
         viewerElement.hidden = true;
