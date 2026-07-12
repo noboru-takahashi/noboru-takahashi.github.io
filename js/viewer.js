@@ -2,6 +2,11 @@
     "use strict";
 
     const works = Object.freeze({
+        "terayama-cover": Object.freeze({
+            title: "1993 「寺山修司：反逆から様式へ」表紙",
+            dzi: "assets/dzi/terayama-cover/image.dzi",
+            pdf: "assets/terayama_cover.pdf"
+        }),
         "terayama-spread": Object.freeze({
             title: "1993 「寺山修司：反逆から様式へ」見開き",
             dzi: "assets/dzi/terayama-spread/image.dzi",
