@@ -6,6 +6,12 @@
             title: "1993 「寺山修司：反逆から様式へ」見開き",
             dzi: "assets/dzi/terayama-spread/image.dzi",
             pdf: "assets/terayama_a3.pdf"
+        }),
+        "kotoba": Object.freeze({
+            title: "1993 「言葉だけでは困ります」",
+            dzi: "assets/dzi/kotoba/image.dzi",
+            pdf: "assets/kotoba.pdf",
+            maxZoomPixelRatio: 1
         })
     });
 
@@ -55,7 +61,7 @@
         constrainDuringPan: true,
         visibilityRatio: 1,
         minZoomImageRatio: 1,
-        maxZoomPixelRatio: 2,
+        maxZoomPixelRatio: work.maxZoomPixelRatio ?? 2,
         animationTime: 0.8,
         blendTime: 0.1,
         gestureSettingsMouse: {
