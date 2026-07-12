@@ -17,6 +17,12 @@
             dzi: "assets/dzi/kotoba/image.dzi",
             pdf: "assets/kotoba.pdf",
             maxZoomPixelRatio: 1
+        }),
+        "nec-qp": Object.freeze({
+            title: "1996 産業広告大賞銅賞 NEC QP",
+            dzi: "assets/dzi/nec-qp/image.dzi",
+            pdf: "assets/1996_NEC_QP.pdf",
+            maxZoomPixelRatio: 1
         })
     });
 
